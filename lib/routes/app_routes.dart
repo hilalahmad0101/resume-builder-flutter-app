@@ -12,6 +12,7 @@ import 'package:resumebuilder/features/editor/screens/work_experience_screen.dar
 import 'package:resumebuilder/features/editor/screens/education_screen.dart';
 import 'package:resumebuilder/features/editor/screens/skills_languages_screen.dart';
 import 'package:resumebuilder/features/preview/screens/resume_preview_screen.dart';
+import 'package:resumebuilder/features/settings/screens/settings_screen.dart';
 import 'package:resumebuilder/routes/routes.dart';
 
 class UAppRoutes {
@@ -47,5 +48,6 @@ class UAppRoutes {
       name: URoutes.previewExport,
       page: () => const ResumePreviewScreen(),
     ),
+    GetPage(name: URoutes.settings, page: () => const SettingsScreen()),
   ];
 }

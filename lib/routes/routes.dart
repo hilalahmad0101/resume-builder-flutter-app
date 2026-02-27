@@ -12,4 +12,5 @@ class URoutes {
   static const String education = '/education';
   static const String skillsLanguages = '/skills-languages';
   static const String previewExport = '/preview-export';
+  static const String settings = '/settings';
 }

@@ -79,14 +79,17 @@ class DashboardBottomNav extends StatelessWidget {
         if (Get.currentRoute != URoutes.home) Get.offAllNamed(URoutes.home);
         break;
       case 1:
-        if (Get.currentRoute != URoutes.templates)
+        if (Get.currentRoute != URoutes.templates) {
           Get.toNamed(URoutes.templates);
+        }
         break;
       case 2:
         // Get.toNamed(URoutes.jobs);
         break;
       case 3:
-        // Get.toNamed(URoutes.settings);
+        if (Get.currentRoute != URoutes.settings) {
+          Get.toNamed(URoutes.settings);
+        }
         break;
     }
   }
