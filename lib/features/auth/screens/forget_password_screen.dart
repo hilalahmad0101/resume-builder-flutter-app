@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:resumebuilder/common/widgets/app_text_field.dart';
 import 'package:resumebuilder/common/widgets/primary_button.dart';
 import 'package:resumebuilder/features/auth/screens/widgets/remember_password_footer.dart';
+import 'package:resumebuilder/routes/routes.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
@@ -21,7 +23,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
   void _onSendResetLink() {
     debugPrint('Reset link sent to: ${_emailController.text}');
-    // TODO: call backend
+    Get.toNamed(URoutes.resetPassword);
   }
 
   @override
@@ -115,7 +117,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 28),
               child: RememberPasswordFooter(
-                onSignIn: () => Navigator.maybePop(context),
+                onSignIn: () => Get.offNamed(URoutes.login),
               ),
             ),
           ],

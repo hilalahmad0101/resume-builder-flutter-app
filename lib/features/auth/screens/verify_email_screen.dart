@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:resumebuilder/common/widgets/primary_button.dart';
 import 'package:resumebuilder/features/auth/screens/widgets/email_verify_icon.dart';
 import 'package:resumebuilder/features/auth/screens/widgets/otp_input_row.dart';
 import 'package:resumebuilder/features/auth/screens/widgets/resend_code_widget.dart';
+import 'package:resumebuilder/routes/routes.dart';
 
 class VerifyEmailScreen extends StatefulWidget {
   const VerifyEmailScreen({super.key, this.email = 'alex.jordan@example.com'});
@@ -30,7 +32,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
   void _onVerify() {
     final otp = _controllers.map((c) => c.text).join();
     debugPrint('OTP entered: $otp');
-    // TODO: validate OTP with backend
+    Get.offAllNamed(URoutes.home);
   }
 
   @override
