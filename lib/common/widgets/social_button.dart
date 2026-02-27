@@ -17,19 +17,15 @@ class SocialButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: OutlinedButton(
-        onPressed: onPressed ?? () {},
-        style: OutlinedButton.styleFrom(
-          minimumSize: const Size.fromHeight(56),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-          side: const BorderSide(color: UColors.grayColor),
-          backgroundColor: Colors.white,
-        ),
-        child: _buildChild(),
+    return OutlinedButton(
+      onPressed: onPressed ?? () {},
+      style: OutlinedButton.styleFrom(
+        minimumSize: const Size.fromHeight(56),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        side: const BorderSide(color: UColors.grayColor),
+        backgroundColor: Colors.white,
       ),
+      child: _buildChild(),
     );
   }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:resumebuilder/common/widgets/app_heading.dart';
 import 'package:resumebuilder/common/widgets/app_sub_title.dart';
 import 'package:resumebuilder/common/widgets/app_text_field.dart';
@@ -7,6 +8,7 @@ import 'package:resumebuilder/common/widgets/primary_button.dart';
 import 'package:resumebuilder/common/widgets/social_button.dart';
 import 'package:resumebuilder/common/widgets/term_text.dart';
 import 'package:resumebuilder/features/auth/screens/widgets/sign_in_footer.dart';
+import 'package:resumebuilder/routes/routes.dart';
 
 class CreateAccountScreen extends StatefulWidget {
   const CreateAccountScreen({super.key});
@@ -96,9 +98,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                 const SizedBox(height: 28),
                 PrimaryButton(
                   label: 'Create Account',
-                  onPressed: () {
-                    // TODO: handle registration
-                  },
+                  onPressed: () => Get.toNamed(URoutes.verifyEmail),
                 ),
 
                 // ── Social sign-in
@@ -107,18 +107,22 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                 const SizedBox(height: 20),
                 Row(
                   children: [
-                    SocialButton(
-                      imageNetwork:
-                          'https://lh3.googleusercontent.com/aida-public/AB6AXuAwUZB0oBj6mwKfQgk9WneLKOeyFzcphKTQ7pCe969crk54xkqo9_1QxXLktgvrdkyBFI3OI9bJY8uqvXqKKJG6AXq7wlekJ38XnIj1WIFzpi-nIwerENYH7R5_lS3LGPpv2H84AOK5oSe86Obowhexvsj3rObSjd_NxS6jC0l8DZsR0S0BOJiv6Ass9F5sGAYS-IIgkVSe-8acbMc4SXpTz0C3I-UnNnMGHCo_RLH9mN1MLr0mGvyEy24timquybAjTrlVIcuf6e4u',
+                    Expanded(
+                      child: SocialButton(
+                        imageNetwork:
+                            'https://lh3.googleusercontent.com/aida-public/AB6AXuAwUZB0oBj6mwKfQgk9WneLKOeyFzcphKTQ7pCe969crk54xkqo9_1QxXLktgvrdkyBFI3OI9bJY8uqvXqKKJG6AXq7wlekJ38XnIj1WIFzpi-nIwerENYH7R5_lS3LGPpv2H84AOK5oSe86Obowhexvsj3rObSjd_NxS6jC0l8DZsR0S0BOJiv6Ass9F5sGAYS-IIgkVSe-8acbMc4SXpTz0C3I-UnNnMGHCo_RLH9mN1MLr0mGvyEy24timquybAjTrlVIcuf6e4u',
+                      ),
                     ),
                     const SizedBox(width: 16),
-                    const SocialButton(iconData: Icons.apple_rounded),
+                    const Expanded(
+                      child: SocialButton(iconData: Icons.apple_rounded),
+                    ),
                   ],
                 ),
 
                 // ── Footer
                 const SizedBox(height: 36),
-                const SignInFooter(),
+                SignInFooter(onSignIn: () => Get.offNamed(URoutes.login)),
                 const SizedBox(height: 16),
                 const Center(child: TermsText()),
                 const SizedBox(height: 32),
