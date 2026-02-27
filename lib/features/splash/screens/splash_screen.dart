@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:resumebuilder/routes/routes.dart';
 import 'package:resumebuilder/utils/constants/colors.dart';
-import 'package:resumebuilder/utils/constants/images.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -11,28 +12,35 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 2), () {
+      Get.offAllNamed(URoutes.login);
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
           Expanded(
             flex: 2,
-            child: ShaderMask(
-              shaderCallback: (shader) {
-                return LinearGradient(
+            child: Container(
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [UColors.blackColor, Colors.transparent],
-                  stops: [0.3, 1.0],
-                ).createShader(
-                  Rect.fromLTRB(0, 0, shader.width, shader.height),
-                );
-              },
-              blendMode: BlendMode.dstIn,
-              child: Image.network(
-                'https://lh3.googleusercontent.com/aida-public/AB6AXuAhM0snzXmgJk7k-zyHbZUl1l1gFKbvT5TlXozWPltT7Py6HSzaSXRC3DVcQ04jIRC5YKtLobRjzE8gAMBxzTzib8IH5z6JRhlT7wndihEL4bxzY7dNEPPSbOCUKl-GBekPVtG1ZhoFE-8015Dr73ShZehrTuknflaIjBUaqwzgghxmZ02NOgSgr-E5b2QalLKM5cVdaUQes4tiucu3_9QOgzuc20-88Vi6TIaqF5WgSvSycclfbiQ5QciKx1hIq8I2GU2ehz6qHYsQ',
-                fit: BoxFit.cover,
-                width: double.infinity,
+                  colors: [UColors.primaryColor, UColors.backgroundLightColor],
+                ),
+              ),
+              child: const Center(
+                child: Icon(
+                  Icons.description_rounded,
+                  size: 100,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
@@ -69,7 +77,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     width: double.infinity,
                     height: 56,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => Get.toNamed(URoutes.createAccount),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: UColors.primaryColor,
                         elevation: 0,
@@ -92,7 +100,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     width: double.infinity,
                     height: 56,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => Get.toNamed(URoutes.login),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: UColors.backgroundGrayColor,
                         elevation: 0,
